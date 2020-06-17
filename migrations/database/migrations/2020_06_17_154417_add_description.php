@@ -15,7 +15,7 @@ class AddDescription extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->text('description');
-            $table->string('name');
+       
         });
     }
 
@@ -28,7 +28,7 @@ class AddDescription extends Migration
     {
         Schema::table('students', function (Blueprint $table) {
             $table->dropColumn('description');
-            $table->dropColumn('name');
+        
         });
     }
 }
