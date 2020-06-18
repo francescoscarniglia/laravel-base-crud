@@ -16,8 +16,8 @@
             <a href="#" class="text-warning"><h2>Logo Here</h2></a>
         </div>
         <ul class="ml-auto navbar-nav">
-            <li class="nav-item active"><a href="#" class="nav-link"> Home</a></li>
-            <li><a href="#" class="nav-link"> About</a></li>
+            <li class="nav-item active"><a href="{{ route('homePage') }}" class="nav-link"> Home</a></li>
+            <li><a href="{{ route('classrooms.index') }}" class="nav-link"> Classrooms</a></li>
         </ul>
     </nav>
     </header> 
