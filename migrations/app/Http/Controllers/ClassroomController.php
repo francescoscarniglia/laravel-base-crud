@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Classroom;
 
 class ClassroomController extends Controller
 {
@@ -12,8 +13,10 @@ class ClassroomController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('classrooms.index');
+    {   
+        $classrooms = Classroom::all();
+
+        return view('classrooms.index', compact('classrooms'));
     }
 
     /**
@@ -23,7 +26,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        //
+        return view('classrooms.create');
     }
 
     /**

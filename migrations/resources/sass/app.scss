@@ -4,5 +4,12 @@
 // Variables
 @import 'variables';
 
+// Commons
+@import 'commons';
+
+// static
+@import 'header';
+@import 'footer';
+
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';

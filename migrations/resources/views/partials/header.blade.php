@@ -13,11 +13,12 @@
     <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-info p-4">
         <div class="navbrand">
-            <a href="#" class="text-warning"><h2>Logo Here</h2></a>
+            <a href="{{ route('homePage') }}" class="text-warning"><h2>Logo Here</h2></a>
         </div>
         <ul class="ml-auto navbar-nav">
             <li class="nav-item active"><a href="{{ route('homePage') }}" class="nav-link"> Home</a></li>
             <li><a href="{{ route('classrooms.index') }}" class="nav-link"> Classrooms</a></li>
+            <li><a href="{{ route('classrooms.create') }}" class="nav-link"> Add Classrooms</a></li>
         </ul>
     </nav>
     </header> 

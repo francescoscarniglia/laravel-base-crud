@@ -5,13 +5,13 @@
     <section class="student">
     <h2 class="text-info mb-4">Student List</h2>
          <table class="table">
-             <th>
+             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Age</th>
                     <th>Description</th>
                 </tr>
-             </th>
+             </thead>
              <tbody>
                     @foreach ($students as $student)
                     <tr>
