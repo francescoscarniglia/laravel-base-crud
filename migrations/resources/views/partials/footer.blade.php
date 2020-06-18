@@ -1,5 +1,5 @@
 
-    <footer class="main-footer">
+    <footer class="main-footer p-4">
     footer here
     </footer>
     
