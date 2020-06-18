@@ -11,9 +11,9 @@
 </head>
 <body>
     <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info p-4">
         <div class="navbrand">
-            Brand
+            <a href="#" class="text-warning"><h2>Logo Here</h2></a>
         </div>
         <ul class="ml-auto navbar-nav">
             <li class="nav-item active"><a href="#" class="nav-link"> Home</a></li>

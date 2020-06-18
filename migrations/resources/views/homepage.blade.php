@@ -3,7 +3,7 @@
 @section('main-content')
     <h1 class="mb-4 text-muted text-center">Home page</h1>
     <section class="student">
-        <h2 class="text-info">Student List</h2>
+    <h2 class="text-info mb-4">Student List</h2>
          <table class="table">
              <th>
                 <tr>
