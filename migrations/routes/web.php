@@ -11,4 +11,8 @@
 |
 */
 
+// homepage
 Route::get('/', 'HomePageController@index')->name('homePage');
+
+// classrooms
+Route::resource('classrooms', 'ClassroomController');
