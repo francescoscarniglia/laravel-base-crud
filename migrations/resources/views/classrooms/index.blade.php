@@ -25,8 +25,8 @@
                         <td>{{ $classroom->id }}</td>
                         <td>{{ $classroom->name }}</td>
                         <td> <a class="btn btn-success" href="{{ route('classrooms.show', $classroom->id) }}"> Show</a> </td>
-                        <td> Update </td>
-                        <td> Delete </td>
+                        <td> <a class="btn btn-warning" href=" {{ route('classrooms.edit', $classroom->id) }}">Edit</a></td>
+                        <td> <a class="btn btn-danger"href="#"> Delete</a> </td>
                     </tr>
                   @endforeach
              </tbody>

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('main-content')
-    <h1 class="mb-4 text-info text-center">Create a new classroom</h1>
+    <h1 class="mb-4 text-info text-center">Edit classroom</h1>
 
     @if($errors->any())
     <div class="alert alert-info col-sm-8 offset-sm-2">
@@ -15,23 +15,23 @@
     </div>
     @endif
 
-    <!-- form action = App\Http\Controllers\ClassroomController@store  -->
-    <form action="{{ route('classrooms.store') }}" method="POST">
+    <!-- form action = App\Http\Controllers\ClassroomController@update  -->
+    <form action="{{ route('classrooms.update', $classroom->id) }}" method="POST">
     <!-- token laravel -->
         @csrf 
         <!-- method  POST-->
-        @method('POST')
-
+        @method('PATCH')
+  
     <!-- form -->
     <div class="col-sm-8 offset-sm-2">
     <div class="form-group">
         <label for="name">Name *</label>
-            <input type="text" class="form-control" name="name" value="{{ old('name')}}" placeholder="Class name">
+            <input type="text" class="form-control" name="name" value="{{ old('name', $classroom->name) }}" placeholder="Class name">
             </input>   
         </div>
         <div class="form-group">
         <label for="description">Description *</label>
-            <input type="text" class="form-control" name="description" value="{{ old('description')}}" placeholder="Class description">
+            <input type="text" class="form-control" name="description" value="{{ old('description', $classroom->description) }}" placeholder="Class description">
             </input>   
         </div>
         <div class="text-right">
