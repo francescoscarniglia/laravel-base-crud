@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Classroom;
+use Illuminate\Validation\Rule;
 
 class ClassroomController extends Controller
 {
@@ -41,10 +42,7 @@ class ClassroomController extends Controller
         $data = $request->all();
         
         // validate 
-        $request->validate([
-            'name' => 'required|unique:classrooms|max:20',
-            'description' => 'required'
-        ]);
+        $request->validate($this->valRules());
 
         // new classroom in db 
         $classroom = new Classroom();
@@ -57,7 +55,7 @@ class ClassroomController extends Controller
         // REDIRECT TO SHOW ROUTE
         if($saved) {
             $newClass = Classroom::find($classroom->id);
-            return redirect()->route('classrooms.show', $newClass);
+            return redirect()->route('classrooms.show', $newClass->id);
         }
     }
 
@@ -90,9 +88,21 @@ class ClassroomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Classroom $classroom)
     {
-        //
+        $data = $request->all();
+        
+        // validazione
+        $request->validate($this->valRules($classroom->id));    
+
+        // update data on db
+        $updated = $classroom->update($data);
+        // dd($updated);
+
+        // redirect 
+        if($updated) {
+            return redirect()->route('classrooms.show', $classroom->id);
+        }
     }
 
     /**
@@ -101,8 +111,28 @@ class ClassroomController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(Classroom $classroom)
+    {   
+        // ref delete
+        $ref = $classroom->name;
+
+        // delete
+        $deleted = $classroom->delete();
+
+        // redirect with session data
+        if($deleted) {
+            return redirect()->route('classrooms.index')->with('deleted', $ref);
+        }
+    }
+
+    // UTILITIES
+
+    // difine custom rules 
+    private function valRules($id = null) {
+        return [
+            // 'name' => 'required|unique:classrooms|max:20',
+            'name' => [ 'required' , 'max:20', Rule::unique('classrooms')->ignore($id) ],
+            'description' => 'required'
+        ];
     }
 }
